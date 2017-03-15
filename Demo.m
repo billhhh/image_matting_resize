@@ -13,3 +13,11 @@ TrimapDsz = Downsize(Trimap);
 EstimatedAlphaDsz = ComprehensiveSamplingMatting(IDsz, TrimapDsz) ;
 EstimatedAlphaDsz = Upsize(EstimatedAlphaDsz);
 figure(2),imshow(EstimatedAlphaDsz);
+
+%Avr downsize and upsize test
+IDsz = Downsize_avr(I);
+TrimapDsz = Downsize(Trimap);
+
+EstimatedAlphaDsz = ComprehensiveSamplingMatting(IDsz, TrimapDsz) ;
+EstimatedAlphaDsz = Upsize(EstimatedAlphaDsz);
+figure(3),imshow(EstimatedAlphaDsz);
