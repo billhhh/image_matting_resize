@@ -12,3 +12,4 @@ Trimap = imread('Trimap.png');
 figure(1),imshow(I);
 tempImg = Downsize(I);
 figure(2),imshow(tempImg);
+figure(3),imshow(Upsize(tempImg));
