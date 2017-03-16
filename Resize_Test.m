@@ -14,4 +14,8 @@ tempImg = Downsize_avr(I);
 figure(2),imshow(tempImg);
 %figure(3),imshow(Upsize(tempImg));
 %imwrite(subimage1,strcat('F:\jinwei\pictureextacted\',[num2str(k),'1.bmp']));
-imwrite(Upsize(tempImg),'.\res_training_lowres\test.png');
+%imwrite(Upsize(tempImg),'.\res_training_lowres\test.png');
+
+for i = 1:5
+    imwrite(Upsize(tempImg),strcat('.\res_training_lowres\','test',[num2str(i),'.png']));
+end
