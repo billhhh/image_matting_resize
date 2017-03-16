@@ -12,4 +12,6 @@ Trimap = imread('Trimap.png');
 figure(1),imshow(I);
 tempImg = Downsize_avr(I);
 figure(2),imshow(tempImg);
-figure(3),imshow(Upsize(tempImg));
+%figure(3),imshow(Upsize(tempImg));
+%imwrite(subimage1,strcat('F:\jinwei\pictureextacted\',[num2str(k),'1.bmp']));
+imwrite(Upsize(tempImg),'.\res_training_lowres\test.png');
