@@ -16,17 +16,17 @@ for i = 1:27
     
     % load image and trimap
     path = strcat('.\input_training_lowres\',name_prefix,'.png');
-    fprintf('Now reading: %s...',path);
+    fprintf('Now reading: %s...\n',path);
     I = imread(path);
     path = strcat('.\trimap_training_lowres\Trimap1\',name_prefix,'.png');
-    fprintf('Now reading: %s...',path);
+    fprintf('Now reading: %s...\n',path);
     Trimap = imread(path);
 
     % call ComprehensiveSamplingMatting .
     EstimatedAlpha = ComprehensiveSamplingMatting(I, Trimap) ; 
     %figure(1),imshow(EstimatedAlpha);
     path = strcat('.\res_training_lowres\',name_prefix,'_Org.png');
-    fprintf('Now writing: %s...',path);
+    fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlpha,path);
 
     %Downsize and upsize test
@@ -37,7 +37,7 @@ for i = 1:27
     EstimatedAlphaDsz = Upsize(EstimatedAlphaDsz);
     %figure(2),imshow(EstimatedAlphaDsz);
     path = strcat('.\res_training_lowres\',name_prefix,'_Dsz.png');
-    fprintf('Now writing: %s...',path);
+    fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlphaDsz,path);
 
     %Avr downsize and upsize test
@@ -48,6 +48,6 @@ for i = 1:27
     EstimatedAlphaDsz_avr = Upsize(EstimatedAlphaDsz_avr);
     %figure(3),imshow(EstimatedAlphaDsz);
     path = strcat('.\res_training_lowres\',name_prefix,'_Dsz_avr.png');
-    fprintf('Now writing: %s...',path);
+    fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlphaDsz_avr,path);
 end
