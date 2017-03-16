@@ -9,9 +9,9 @@ for i = 1:27
 
     % Get name prefix
     if i<10
-        name_prefix = 'GT0';
+        name_prefix = strcat('GT0',num2str(i));
     else
-        name_prefix = 'GT';
+        name_prefix = strcat('GT',num2str(i));
     end
     
     % load image and trimap
@@ -47,7 +47,7 @@ for i = 1:27
     EstimatedAlphaDsz_avr = ComprehensiveSamplingMatting(IDsz_avr, TrimapDsz_avr) ;
     EstimatedAlphaDsz_avr = Upsize(EstimatedAlphaDsz_avr);
     %figure(3),imshow(EstimatedAlphaDsz);
-    path = strcat('.\res_training_lowres\',name_prefix,'_Dsz.png');
+    path = strcat('.\res_training_lowres\',name_prefix,'_Dsz_avr.png');
     fprintf('Now writing: %s...',path);
     imwrite(EstimatedAlphaDsz_avr,path);
 end
