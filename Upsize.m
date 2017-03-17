@@ -19,7 +19,7 @@ function UszImg = Upsize (I,IOrg)
                IOrg(row,:)=[];
            end
            
-           if mod(col,2)~=0 %odd
+           if mod(Icol,2)~=0 %odd
                %del one col
                IOrg(:,col)=[];
            end
