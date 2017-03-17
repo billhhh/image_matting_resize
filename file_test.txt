@@ -1,0 +1,4 @@
+1stline: 1stline: 1stline: 1stline: 555
+1stline: 1stline: 0.000000
+1stline: 6.698000
+1stline: 6.687000s

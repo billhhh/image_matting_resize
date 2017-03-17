@@ -5,6 +5,9 @@
 %  All rights are reserved ! ----------------------------------------------
 % -------------------------------------------------------------------------
 
+%write into file
+fid=fopen('time_res.txt','a');
+    
 for i = 1:27
 
     % Get name prefix
@@ -21,39 +24,53 @@ for i = 1:27
     path = strcat('.\trimap_training_lowres\Trimap1\',name_prefix,'.png');
     fprintf('Now reading: %s...\n',path);
     Trimap = imread(path);
-
+    
     % call ComprehensiveSamplingMatting .
-    tic;
+    %tic;
+    t1=clock;
     EstimatedAlpha = ComprehensiveSamplingMatting(I, Trimap) ; 
-    toc;
+    %toc;
+    t2=clock;
+    time = etime(t2,t1);
+    fprintf(fid,'%s_Org: %fs ',name_prefix,time);
     %figure(1),imshow(EstimatedAlpha);
     path = strcat('.\res_training_lowres\',name_prefix,'_Org.png');
     fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlpha,path);
 
     %Downsize and upsize test
-    tic;
+    %tic;
+    t1=clock;
     IDsz = Downsize(I);
     TrimapDsz = Downsize(Trimap);
 
     EstimatedAlphaDsz = ComprehensiveSamplingMatting(IDsz, TrimapDsz) ;
     EstimatedAlphaDsz = Upsize(EstimatedAlphaDsz);
-    toc;
+    %toc;
+    t2=clock;
+    time = etime(t2,t1);
+    fprintf(fid,'%s_Dsz: %fs ',name_prefix,time);
     %figure(2),imshow(EstimatedAlphaDsz);
     path = strcat('.\res_training_lowres\',name_prefix,'_Dsz.png');
     fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlphaDsz,path);
 
     %Avr downsize and upsize test
-    tic;
+    %tic;
+    t1=clock;
     IDsz_avr = Downsize_avr(I);
     TrimapDsz_avr = Downsize(Trimap);
 
     EstimatedAlphaDsz_avr = ComprehensiveSamplingMatting(IDsz_avr, TrimapDsz_avr) ;
     EstimatedAlphaDsz_avr = Upsize(EstimatedAlphaDsz_avr);
-    toc;
+    %toc;
+    t2=clock;
+    time = etime(t2,t1);
+    fprintf(fid,'%s_Dsz_avr: %fs\n',name_prefix,time);
     %figure(3),imshow(EstimatedAlphaDsz);
     path = strcat('.\res_training_lowres\',name_prefix,'_Dsz_avr.png');
     fprintf('Now writing: %s...\n',path);
     imwrite(EstimatedAlphaDsz_avr,path);
 end
+
+fclose(fid);
