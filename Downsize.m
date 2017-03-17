@@ -13,7 +13,7 @@ function DszImg = Downsize (IOrg)
             
           %% Return The results -------------------------------------------
           
-               DszImg = ResImg ; 
+               DszImg = ResImg ;
 
           
           % ---------------------------------------------------------------

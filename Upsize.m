@@ -1,4 +1,4 @@
-function UszImg = Upsize (IOrg)
+function UszImg = Upsize (I,IOrg)
 
            [row,col,layer] = size(IOrg);
            
@@ -12,7 +12,17 @@ function UszImg = Upsize (IOrg)
                   end
               end
            end
-               
+           
+           [Irow,Icol] = size(I);
+           if mod(Irow,2)~=0 %odd
+               %del one row
+               IOrg(row,:)=[];
+           end
+           
+           if mod(col,2)~=0 %odd
+               %del one col
+               IOrg(:,col)=[];
+           end
             
           %% Return The results -------------------------------------------
           

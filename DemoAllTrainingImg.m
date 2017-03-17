@@ -45,7 +45,7 @@ for i = 1:27
     TrimapDsz = Downsize(Trimap);
 
     EstimatedAlphaDsz = ComprehensiveSamplingMatting(IDsz, TrimapDsz) ;
-    EstimatedAlphaDsz = Upsize(EstimatedAlphaDsz);
+    EstimatedAlphaDsz = Upsize(I,EstimatedAlphaDsz);
     %toc;
     t2=clock;
     time = etime(t2,t1);
@@ -62,7 +62,7 @@ for i = 1:27
     TrimapDsz_avr = Downsize(Trimap);
 
     EstimatedAlphaDsz_avr = ComprehensiveSamplingMatting(IDsz_avr, TrimapDsz_avr) ;
-    EstimatedAlphaDsz_avr = Upsize(EstimatedAlphaDsz_avr);
+    EstimatedAlphaDsz_avr = Upsize(I,EstimatedAlphaDsz_avr);
     %toc;
     t2=clock;
     time = etime(t2,t1);
