@@ -16,12 +16,12 @@ function UszImg = Upsize (I,IOrg)
            [Irow,Icol] = size(I);
            if mod(Irow,2)~=0 %odd
                %del one row
-               IOrg(row,:)=[];
+               ResImg(row*2,:)=[];
            end
            
            if mod(Icol,2)~=0 %odd
                %del one col
-               IOrg(:,col)=[];
+               ResImg(:,col*2)=[];
            end
             
           %% Return The results -------------------------------------------
