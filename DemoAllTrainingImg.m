@@ -8,7 +8,7 @@
 %write into file
 fid=fopen('time_res.txt','a');
     
-for i = 1:27
+for i = 8:27
 
     % Get name prefix
     if i<10

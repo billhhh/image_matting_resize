@@ -21,7 +21,7 @@ function UszImg = Upsize (I,IOrg)
            
            if mod(Icol,2)~=0 %odd
                %del one col
-               ResImg(:,col*2)=[];
+               ResImg(:,col*2,:)=[];
            end
             
           %% Return The results -------------------------------------------
