@@ -9,12 +9,19 @@
 %     fprintf('%d\n',i);
 % end
 
-a = [1,2,3];
-a(1+1,:)=0;
-a(:,3+1)=0;
-a(2,:)=[]; %删除第2行
+% a = [1,2,3];
+% a(1+1,:)=0;
+% a(:,3+1)=0;
+% a(2,:)=[]; %删除第2行
 
 % function Test(tmp)
 % tmp = 5;
 % fprintf('func:%d\n',tmp);
 % end
+
+I = imread('Doll.png') ;
+[row,col,layer] = size(I);
+I(row+1,:)=0;
+I(:,col+1,:)=0;
+I(row+1,:)=[];
+

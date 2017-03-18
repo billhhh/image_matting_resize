@@ -9,7 +9,7 @@ function DszImg = Downsize_avr (IOrg)
            
            if mod(col,2)~=0 %odd
                %add one col
-               IOrg(:,col+1)=0;
+               IOrg(:,col+1,:)=0;
            end
            
            for i = 1:2:row
